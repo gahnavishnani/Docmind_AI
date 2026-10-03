@@ -2,7 +2,7 @@
 
 import html
 import traceback
-
+import os
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 # =========================================================
 
 load_dotenv()
+if "GROQ_API_KEY" in st.secrets:
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(
     page_title="DocuMind AI",
